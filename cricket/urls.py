@@ -10,4 +10,6 @@ urlpatterns = [
     path('player_name', views.addplayer_name, name='player_name'),
     path('team_name', views.team_name, name='team_name'),
     path("newmatch", views.addnewmatch, name="newmatch"),
+    path("update_score", views.update_score, name="update_score"),
+    path("extrarun", views.extrarun, name="extrarun"),
 ]

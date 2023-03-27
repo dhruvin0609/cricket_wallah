@@ -14,6 +14,7 @@
         {{ data.id}}
         <br />
         {% endfor %} -->
+        {% csrf_token %}
         {% for data in dataset2 %}
         {{ data.teamname }}
         {{ data.id }}
