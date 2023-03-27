@@ -1,7 +1,33 @@
-<div class="main">
+<!DOCTYPE html>
+<html>
 
-    {% for data in dataset %}
-    {{ data.teamname }}
-    <br />
-    {% endfor %}
-</div>
+<head>
+
+</head>
+
+<body>
+    <div class="main">
+
+        <!-- {% for data in dataset %}
+        {{ data.playername }}
+        {{ data.team_id}}
+        {{ data.id}}
+        <br />
+        {% endfor %} -->
+        {% for data in dataset2 %}
+        {{ data.teamname }}
+        {{ data.id }}
+        {% for data1 in dataset %}
+        {% if data1.team_id == data.id %}
+        {{ data1.playername }}
+        {{ data2.team_id}}
+        {{ data3.id}}
+        {% endif %}
+        {% endfor %}
+        <br />
+        {% endfor %}
+    </div>
+
+</body>
+
+</html>
