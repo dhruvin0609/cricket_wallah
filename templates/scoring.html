@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" lang="en">
+
+<head></head>
+
+<body>
+    {% csrf_token %}
+    {%if current == 1%}
+    {{dataset.teamname1}}
+    {{dataset.score1}} / {{dataset.wicket1}}
+    over : {{dataset.over1}}<br>
+    <!-- {%if dataset.current_ball == 6%}
+    {{dataset.over1}}<br> -->
+    <!-- {%else%} -->
+    <!-- {%endif%}<br> -->
+    {{dataset.teamname2}}
+    {{dataset.score2}}/{{dataset.wicket2}}
+    {%else%}
+    {{dataset.teamname1}}
+    {{dataset.score1}} / {{dataset.wicket1}}
+    over: {{dataset.over1}}<br>
+    {{dataset.teamname2}}
+    {{dataset.score2}}/{{dataset.wicket2}}
+    over :{{dataset.over2}}
+    <!-- {%if dataset.current_ball == 6%} -->
+    <!-- {{dataset.over2}}<br> -->
+    <!-- {%else%} -->
+    <!-- {%endif%} -->
+    {%endif%}<br><br>
+    {{player1}} / {{sc1}} / {{ball1}}<br>
+    {{player2}} / {{sc2}} / {{ball2}}<br>
+    {{player3}} / {{wiket}} / {{br}} / {{ovr}}
+    <form action="update_score" method="post">
+        {% csrf_token %}
+        <button name="dot" type="submit">0</button><br>
+        <button name="one" type="submit">1</button><br>
+        <button name="two" type="submit">2</button><br>
+        <button name="three" type="submit">3</button><br>
+        <button name="four" type="submit">4</button><br>
+        <button name="five" type="submit">5</button><br>
+        <button name="six" type="submit">6</button><br>
+        <button name="wicket" type="submit">wicket</button><br>
+        <button name="wide" type="submit">wide</button><br>
+        <button name="noball" type="submit">noball</button><br>
+        <button name="freehit" type="submit">freehit</button><br>
+        <!-- <button name="result" type="submit">result</button><br> -->
+
+        <!-- <button name="wide1" type="submit">wide + 1</button><br>
+        <button name="wide2" type="submit">wide + 2</button><br>
+        <button name="wide3" type="submit">wide + 3</button><br>
+        <button name="wide4" type="submit">wide + 4</button><br> -->
+        <button name="inning_end" type="submit">inningend</button><br>
+    </form>
+</body>
+
+</html>
