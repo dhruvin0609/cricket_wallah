@@ -13,8 +13,9 @@
         The Winner is:{{dataset.teamname2}}
         {%endif%}
     </h1>
-    <form method="post" action="home">
-        <input type="submit">home</input>
+    <form method="post" action="/">
+        {% csrf_token %}
+        <input type="submit" value="home"></input>
     </form>
 </body>
 </head>
