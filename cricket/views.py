@@ -17,9 +17,8 @@ global current
 def home(request):
     global noteam
     noteam = 2
-    global matchscore
     context = {}
-    context["dataset"] = matchscore
+    context["dataset"] = livematch.objects.all()
     return render(request, 'home.html', context)
 
 
