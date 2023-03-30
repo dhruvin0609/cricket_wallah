@@ -267,7 +267,7 @@ def update_score(request):
         context["ball2"] = players1[b2].ball
         context["br"] = players2[bs].brun
         context["wiket"] = players2[w].wicket
-        context["ovr"] = players2[o].overs
+        # context["ovr"] = players2[o].overs
         if matchscore.current_ball == 6:
             temp = bat1
             bat1 = bat2
@@ -284,12 +284,13 @@ def update_score(request):
             temp = s1
             s1 = s2
             s2 = temp
+            # players2[o].overs = players2[o].overs + 1
+            # context.update({'ovr':players2[o].overs})
         context.update({'sc1':players1[s1].score, 'ball1':players1[b1].ball, 'sc2':players1[s2].score, 'ball2':players1[b2].ball})
         context.update({'br':players2[bs].brun, 'wiket':players2[w].wicket, 'ovr':players2[o].overs})
         context["player1"] = players1[bat1].playername
         context["player2"] = players1[bat2].playername
         context["player3"] = players2[bowl].playername
-        context.update({'ovr':players2[o].overs + 1})
         
 
 
@@ -303,7 +304,7 @@ def update_score(request):
                 matchscore.current_ball = 1
             players1[b1].ball = players1[b1].ball + 1
             players2[o].overs = players2[o].overs + (matchscore.current_ball/10)
-            context.update({'ball1': players1[b1].ball, 'ovr':players2[o].overs})
+            # context.update({'ball1': players1[b1].ball, 'ovr':players2[o].overs})
             temp = details.over * 6 - matchscore.balls
             matchscore.over1 = int((temp / 6)) + (temp % 6)/10
             matchscore.save()
@@ -530,6 +531,8 @@ def update_score(request):
             temp = s1
             s1 = s2
             s2 = temp
+            # players1[o].overs = players1[o].overs + 1
+            # context.update({'ovr':players1[o].overs})
         context.update({'sc1':players2[s1].score, 'ball1':players2[b1].ball, 'sc2':players2[s2].score, 'ball2':players2[b2].ball})
         context["player1"] = players2[bat1].playername
         context["player2"] = players2[bat2].playername
@@ -541,7 +544,7 @@ def update_score(request):
             if matchscore.current_ball == 7:
                 matchscore.current_ball = 1
             players2[b1].ball = players2[b1].ball + 1
-            players1[o].overs = players1[o].overs + (matchscore.current_ball/10)
+            # players1[o].overs = players1[o].overs + (matchscore.current_ball/10)
             context.update({'ball1': players2[b1].ball, 'ovr':players1[o].overs})
 
             players1[bs].brun = players1[bs].brun + 0
@@ -738,7 +741,7 @@ def update_score(request):
             if matchscore.current_ball == 7:
                 matchscore.current_ball = 1
             players2[b1].ball = players2[b1].ball + 1
-            players1[o].overs = players1[o].overs + (matchscore.current_ball/10)
+            # players1[o].overs = players1[o].overs + (matchscore.current_ball/10)
             context.update({'ball1': players2[b1].ball, 'ovr':players1[o].overs})
             temp = details.over * 6 - matchscore.balls
             matchscore.over2 = int((temp / 6)) + (temp % 6)/10
